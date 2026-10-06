@@ -24,15 +24,19 @@ Também verificado: hashes dos três PNG originais iguais aos arquivos do pacote
 
 ## Estado da publicação
 
-O commit inicial da implementação, `db401473b18ef0a9e42a63e2fea475e92dca2e89`, foi enviado com sucesso para `main` de `THEUSMKT/SITE-GELISE`.
+**Site publicado e verificado:** https://theusmkt.github.io/SITE-GELISE/.
 
-A [primeira execução de Pages](https://github.com/THEUSMKT/SITE-GELISE/actions/runs/37464004671) foi iniciada pelo GitHub e falhou em `configure-pages`, antes do deploy, com:
+Após a seleção de **GitHub Actions** como fonte do Pages pelo proprietário, a [execução 37464868101](https://github.com/THEUSMKT/SITE-GELISE/actions/runs/37464868101) foi iniciada por `workflow_dispatch` sobre o commit `da3c23d687fdef89d526aac2338fe156644f59ac` e concluiu com sucesso, incluindo build e deploy.
 
-> Get Pages site failed. Please verify that the repository has Pages enabled and configured to build using GitHub Actions. Error: Not Found.
+Verificações sobre a publicação:
 
-O endereço esperado retornou **404** nessa verificação. Portanto, o site foi implementado e enviado ao repositório, mas **a publicação não foi concluída nem confirmada**.
+- Página pública com HTTP **200**, título e conteúdo do Cantinho VIP.
+- API do GitHub confirmou a URL, `build_type: workflow` e HTTPS obrigatório.
+- Canonical, `og:url` e imagem de compartilhamento apontando para o project site `/SITE-GELISE/`.
+- Onze recursos públicos de entrada, incluindo CSS, JS, fontes, imagens e favicon, retornaram 200 e são idênticos aos arquivos locais, byte por byte.
+- Chromium em 390 px verificou título, retrato, menu móvel, Escape, troca de cursos e ausência de erros da página. As respostas HTTPS foram obtidas pelo cliente HTTP do Playwright com verificação TLS mantida e entregues ao navegador via `route.fetch`/`route.fulfill`: o Chromium desta máquina não reconheceu diretamente a autoridade certificadora do proxy do ambiente. Não foi desativada a verificação TLS.
 
-Ação necessária do proprietário: em **Settings → Pages → Build and deployment → Source**, selecionar **GitHub Actions**; depois executar novamente a [workflow de publicação](https://github.com/THEUSMKT/SITE-GELISE/actions/workflows/pages.yml). Confirmar o job `deploy` e testar a URL retornada. Não é preciso inserir um token no código. A documentação oficial de `configure-pages` informa que a habilitação automática via `enablement` exige um token diferente de `GITHUB_TOKEN`; não foi acrescentada uma exigência de credencial para substituir esse passo simples nas configurações.
+As primeiras execuções falharam em `configure-pages` com `Not Found` enquanto o Pages ainda não estava habilitado. Esse requisito foi resolvido; não é necessário configurar outra workflow, inserir token no código ou escolher os modelos Jekyll/Static HTML oferecidos nas configurações.
 
 ## Ambiente reutilizável
 
