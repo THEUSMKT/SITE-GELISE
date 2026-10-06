@@ -21,6 +21,8 @@ python3 scripts/build.py
 
 O diretório ignorado `.site-build/` inclui somente `index.html`, `.nojekyll`, favicon, imagens otimizadas, fontes com licenças, CSS e JS. Briefing, testes, scripts e imagens originais ficam fora da publicação. O build é repetível e não altera os arquivos fonte. Python 3.10+ é suficiente. Node não é necessário para desenvolver ou hospedar o site.
 
+Resultados dos testes e estado verificado da publicação: [docs/validation.md](docs/validation.md).
+
 ## GitHub Pages
 
 1. Envie os arquivos para a branch `main` do repositório.
