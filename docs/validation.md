@@ -2,7 +2,12 @@
 
 Verificações feitas no ambiente de desenvolvimento, sobre o artefato `.site-build/` servido em `/SITE-GELISE/` no Chromium (Playwright).
 
-## `tests/site.cjs`: 9 grupos aprovados
+## Correções de fotos (7 de outubro)
+
+- Hero: os selos não cobrem mais o rosto. No celular e no tablet ficam numa fileira abaixo da foto; no desktop, na borda esquerda e na base. O teste calcula a área do rosto já renderizada (`object-fit`/`object-position`) e confirma que nenhum selo a toca em 375, 390, 768, 1024 e 1280 px. Essa checagem falha na versão anterior.
+- Sobre: a foto passou a ser `assets/gelise-sobre.(jpg|webp)`, recortada da referência enviada pela cliente (`assets/originals/gelise-sobre-referencia.png`, área interna da moldura dourada, 670 × 1184). É exibida inteira, sem zoom, numa moldura retangular com uma luz dourada que percorre a borda (só `transform`; parada com movimento reduzido).
+
+## `tests/site.cjs`: 11 grupos aprovados
 
 - Título, `lang="pt-BR"`, uma única H1, `theme-color` `#2B0B25`, 12 cards de serviço, galeria oculta (lista vazia), cursos visíveis, contato só com endereço e WhatsApp, nenhum caminho absoluto, nenhum erro ou aviso de console.
 - Sem rolagem horizontal e sem imagens quebradas em 375, 768 e 1280 px.

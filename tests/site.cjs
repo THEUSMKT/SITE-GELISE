@@ -82,6 +82,57 @@ let url;
   }
   passed('Sem rolagem horizontal e sem imagens quebradas em 375, 768 e 1280 px');
 
+  /* 2b. Selos do hero nunca cobrem o rosto da Gelise */
+  // Rosto na imagem original gelise-unhas (1086 × 1448): x 520–1010, y 180–660.
+  for (const width of [375, 390, 768, 1024, 1280]) {
+    const { context, page } = await open({ viewport: { width, height: 860 } });
+    await page.waitForTimeout(1600); // fim das animações de entrada
+    const result = await page.evaluate(() => {
+      const img = document.querySelector('.arch-hero img');
+      const box = img.getBoundingClientRect();
+      const [nw, nh] = [1086, 1448];
+      const scale = Math.max(box.width / nw, box.height / nh); // object-fit: cover
+      const [px, py] = getComputedStyle(img).objectPosition.split(' ').map((v) => parseFloat(v) / 100);
+      const ox = box.left + (box.width - nw * scale) * px;
+      const oy = box.top + (box.height - nh * scale) * py;
+      const face = {
+        left: Math.max(box.left, ox + 520 * scale), right: Math.min(box.right, ox + 1010 * scale),
+        top: Math.max(box.top, oy + 180 * scale), bottom: Math.min(box.bottom, oy + 660 * scale),
+      };
+      const hits = [...document.querySelectorAll('.badge')].filter((b) => {
+        const r = b.getBoundingClientRect();
+        return r.left < face.right && r.right > face.left && r.top < face.bottom && r.bottom > face.top;
+      }).map((b) => b.textContent.trim());
+      const hero = document.querySelector('.hero').getBoundingClientRect();
+      const clipped = [...document.querySelectorAll('.badge')].filter((b) => {
+        const r = b.getBoundingClientRect();
+        return r.left < hero.left || r.right > hero.right;
+      }).map((b) => b.textContent.trim());
+      return { hits, clipped };
+    });
+    assert.deepEqual(result.hits, [], `selo sobre o rosto em ${width}px`);
+    assert.deepEqual(result.clipped, [], `selo cortado na lateral em ${width}px`);
+    await page.locator('.hero-visual').screenshot({ path: path.join(output, `hero-${width}.png`) });
+    await context.close();
+  }
+  passed('Selos do hero longe do rosto e inteiros em 375, 390, 768, 1024 e 1280 px');
+
+  /* 2c. Foto do "Sobre": imagem nova, inteira (sem zoom), com moldura animada */
+  {
+    const { context, page } = await open();
+    await page.locator('#sobre').scrollIntoViewIfNeeded();
+    await page.waitForTimeout(900);
+    const info = await page.locator('.gold-frame img').evaluate((img) => ({
+      src: img.currentSrc, natural: img.naturalWidth / img.naturalHeight, shown: img.clientWidth / img.clientHeight,
+      anim: getComputedStyle(img.closest('.gold-frame'), '::before').animationName,
+    }));
+    assert.match(info.src, /assets\/gelise-sobre\.(webp|jpg)$/);
+    assert.ok(Math.abs(info.natural - info.shown) < 0.01, 'foto exibida inteira, na proporção original');
+    assert.equal(info.anim, 'frame-light');
+    await context.close();
+  }
+  passed('Foto do Sobre: imagem nova, sem corte e com luz dourada animada na borda');
+
   /* 3. Card de serviço pré-seleciona no formulário */
   {
     const { context, page } = await open();
@@ -233,6 +284,7 @@ let url;
     const canvasDrawn = await page.locator('.hero-particles').evaluate((c) => c.width > 0 && getComputedStyle(c).display !== 'none');
     assert.equal(canvasDrawn, false, 'partículas desligadas');
     assert.equal(await page.locator('.marquee-track').evaluate((el) => getComputedStyle(el).animationName), 'none');
+    assert.equal(await page.locator('.gold-frame').evaluate((el) => getComputedStyle(el, '::before').display), 'none', 'luz da moldura parada');
     await page.locator('#contato').scrollIntoViewIfNeeded();
     await page.waitForTimeout(600);
     assert.equal(await page.locator('#contato .section-head').evaluate((el) => getComputedStyle(el).opacity), '1');

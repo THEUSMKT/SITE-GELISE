@@ -285,9 +285,10 @@ section[id], [id="inicio"] { scroll-margin-top: calc(var(--header-h) - 8px); }
 .arch-hero img { aspect-ratio: 4 / 5; object-position: 62% 30%; }
 
 .hero-flower { position: absolute; width: 96px; height: 96px; left: -22px; top: -16px; color: var(--gold-500); opacity: .85; filter: drop-shadow(0 0 12px rgba(212, 175, 55, .35)); }
-.badges { position: absolute; inset: 0; pointer-events: none; }
+/* Selos: no celular/tablet ficam numa fileira ABAIXO da foto (nunca sobre o rosto). */
+.badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 30px; }
 .badge {
-  position: absolute; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+  position: relative; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
   padding: 9px 14px; border-radius: 999px;
   background: rgba(20, 4, 15, .78); border: 1px solid var(--gold-line);
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
@@ -296,9 +297,8 @@ section[id], [id="inicio"] { scroll-margin-top: calc(var(--header-h) - 8px); }
   animation: float 6s ease-in-out infinite;
 }
 .badge svg { width: 16px; height: 16px; color: var(--gold-500); }
-.badge-1 { left: -6%; top: 58%; }
-.badge-2 { right: -6%; top: 18%; animation-delay: -2s; }
-.badge-3 { right: 0; bottom: -18px; animation-delay: -4s; }
+.badge-2 { order: -1; animation-delay: -2s; }
+.badge-3 { animation-delay: -4s; }
 .badge.script { font-family: var(--font-script); font-size: 1.3rem; font-weight: 400; padding: 4px 18px; color: var(--gold-300); }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
@@ -327,9 +327,12 @@ section[id], [id="inicio"] { scroll-margin-top: calc(var(--header-h) - 8px); }
   .hero-actions .btn { flex: 0 0 auto; }
   .hero-visual { width: 100%; max-width: 420px; margin: 0 0 0 auto; }
   .hero-flower { width: 130px; height: 130px; left: -60px; top: -30px; }
-  .badge { font-size: .8rem; padding: 10px 16px; }
-  .badge-1 { left: -18%; }
-  .badge-2 { right: -3%; }
+  /* Desktop: selos nas bordas sem rosto — esquerda (parede de esmaltes) e base (jaleco). */
+  .badges { position: absolute; inset: 0; display: block; margin: 0; pointer-events: none; }
+  .badge { position: absolute; font-size: .8rem; padding: 10px 16px; }
+  .badge-2 { left: -16%; top: 9%; }
+  .badge-1 { left: -22%; top: 80%; }
+  .badge-3 { left: 0; right: 0; bottom: -24px; width: max-content; margin-inline: auto; }
   .badge.script { font-size: 1.5rem; }
 }
 
@@ -407,9 +410,27 @@ section[id], [id="inicio"] { scroll-margin-top: calc(var(--header-h) - 8px); }
 /* ---------- Sobre ---------- */
 .about { background: radial-gradient(ellipse 70% 60% at 20% 50%, rgba(107, 26, 69, .45), transparent 70%), var(--plum-800); }
 .about-grid { display: grid; gap: 56px; align-items: center; }
-.about-visual { position: relative; width: min(74vw, 360px); margin: 0 auto; }
-.arch-about img { aspect-ratio: 3 / 4.4; object-position: 50% 18%; }
-.about-flower { position: absolute; right: -34px; bottom: 40px; width: 92px; height: 92px; color: var(--gold-500); opacity: .7; }
+.about-visual { position: relative; width: min(78vw, 360px); margin: 0 auto; }
+.gold-frame {
+  position: relative; isolation: isolate; overflow: hidden;
+  margin: 0; padding: 4px; border-radius: 6px;
+  /* base estática da borda, mais suave; a luz que gira passa por cima */
+  background: linear-gradient(135deg, rgba(246, 227, 161, .42), rgba(168, 123, 34, .5) 60%, rgba(243, 217, 139, .42));
+  outline: 1px solid var(--gold-line); outline-offset: 9px; /* filete externo, como no material original */
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .75), 0 0 46px -14px rgba(212, 175, 55, .4);
+}
+/* Luz dourada percorrendo a borda: quadrado bem maior que a moldura, girando (só transform). */
+.gold-frame::before {
+  content: ""; position: absolute; z-index: -1;
+  left: 50%; top: 50%; width: 250%; aspect-ratio: 1; margin: -125% 0 0 -125%;
+  background: conic-gradient(from 0deg, transparent 0 52%, rgba(246, 227, 161, .45) 66%, #F6E3A1 78%, #FFFDF3 83%, #F3D98B 88%, #D4AF37 93%, transparent 99%);
+  animation: frame-light 6s linear infinite;
+}
+@keyframes frame-light { to { transform: rotate(1turn); } }
+.gold-frame picture, .gold-frame img { display: block; width: 100%; }
+.gold-frame img { position: relative; height: auto; aspect-ratio: 670 / 1184; object-fit: cover; border-radius: 4px; background: var(--plum-900); }
+/* Flor fora da moldura (só no desktop, onde há espaço ao lado). */
+.about-flower { display: none; position: absolute; right: -92px; bottom: 28px; width: 76px; height: 76px; color: var(--gold-500); opacity: .7; }
 .about-copy { max-width: 560px; }
 .about-copy p { color: var(--text-muted-on-dark); }
 .about-copy strong { color: var(--gold-300); font-weight: 600; }
@@ -418,7 +439,8 @@ section[id], [id="inicio"] { scroll-margin-top: calc(var(--header-h) - 8px); }
 .signature svg { width: 14px; height: 14px; color: var(--gold-500); }
 @media (min-width: 900px) {
   .about-grid { grid-template-columns: .9fr 1.1fr; gap: 88px; }
-  .about-visual { width: 100%; max-width: 400px; }
+  .about-visual { width: 100%; max-width: 390px; }
+  .about-flower { display: block; }
 }
 
 /* ---------- Cursos ---------- */
@@ -650,6 +672,8 @@ textarea.field { resize: vertical; min-height: 96px; line-height: 1.5; }
   .shimmer, .js .hero-title .word.shimmer { animation: none !important; background-position: 50% 50%; }
   .ring-spin, .badge, .scroll-hint span, .btn::after { animation: none !important; }
   .wa-float::before { display: none; }
+  .gold-frame::before { display: none; }
+  .gold-frame { background: var(--gold-gradient); }
   .marquee-track { animation: none; }
   .js .hero-title .word, .js .hero-in, .js .hero-photo-in { opacity: 1; transform: none; animation: none; }
   .reveal-on [data-reveal] { transform: none; transition: opacity .4s linear; }
