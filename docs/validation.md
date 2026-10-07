@@ -1,43 +1,28 @@
-# Validação da implementação
+# Validação — reconstrução "Cantinho Vip" (outubro de 2026)
 
-Verificações executadas em 6 de outubro de 2026 no ambiente de desenvolvimento, sobre o artefato `.site-build/` servido no subdiretório `/SITE-GELISE/`.
+Verificações feitas no ambiente de desenvolvimento, sobre o artefato `.site-build/` servido em `/SITE-GELISE/` no Chromium (Playwright).
 
-## Resultado local
+## `tests/site.cjs`: 9 grupos aprovados
 
-**15 verificações aprovadas** com `tests/site.cjs`, Chromium e Playwright:
+- Título, `lang="pt-BR"`, uma única H1, `theme-color` `#2B0B25`, 12 cards de serviço, galeria oculta (lista vazia), cursos visíveis, contato só com endereço e WhatsApp, nenhum caminho absoluto, nenhum erro ou aviso de console.
+- Sem rolagem horizontal e sem imagens quebradas em 375, 768 e 1280 px.
+- Clicar num card de serviço marca o serviço na etapa 2, atualiza o resumo e rola até o formulário.
+- Formulário completo: erros amigáveis por etapa, saudação pelo nome, "Outro" com texto obrigatório, dica e data obrigatória para eventos, revisão com "Editar", `<a target="_blank">` com `href` atualizado ao vivo, tela "Quase lá" com botão de reabrir e "Fazer um novo pedido".
+- Mensagem do WhatsApp decodificada e comparada **caractere por caractere** com o modelo (acentos, emojis, `*negrito*`, `&`).
+- Fora de eventos a data é opcional ("A combinar") e "Observações" some quando vazia.
+- Menu mobile: `aria-expanded`, Escape e fechamento ao navegar.
+- Intro só na 1ª visita, removida em ~1,2 s.
+- `prefers-reduced-motion`: sem intro, partículas e marquee; conteúdo visível.
+- Sem JavaScript: o hero continua visível e há alternativa de contato (`noscript`).
 
-- Estrutura semântica, uma H1 e galeria/âncora ocultas sem fotos de resultados.
-- Todas as mensagens contextuais de WhatsApp, telefone e busca de endereço.
-- Cinco acordeões de serviços com Enter e Espaço.
-- Cinco painéis de cursos com estado selecionado e teclas de navegação.
-- Layout e imagens em 360, 390, 768, 1024 e 1440 px, sem rolagem horizontal.
-- Menu móvel com foco, contenção, Escape, fechamento ao navegar e mudança para desktop.
-- Movimento reduzido: conteúdo visível e animações não essenciais desativadas.
-- Auditoria automatizada axe para WCAG 2/2.1 A/AA: nenhuma violação encontrada. Isso não substitui uma auditoria humana completa.
-- Componente futuro de trabalhos testado com fixtures apenas no navegador: filtros, lightbox, setas, foco contido e devolvido e Escape. Nenhuma fixture foi publicada como trabalho real.
-- JavaScript desativado: serviços nativos, cinco cursos legíveis, navegação e WhatsApp disponíveis.
-- Nenhum erro de console ou recurso ausente; originais e documentação fora do artefato.
+Também houve revisão visual por capturas em 375, 390, 768 e 1280 px, incluindo as etapas 2, 4 e 5 do formulário.
 
-Capturas de desktop e celular foram revisadas durante a implementação. Capturas e resultados completos estão no diretório local ignorado `test-results/`, regenerável pelo teste.
+## Não verificado aqui
 
-Também verificado: hashes dos três PNG originais iguais aos arquivos do pacote; IDs/âncoras/recursos locais resolvidos; build repetível com hashes idênticos; canonical e Open Graph preservando `/SITE-GELISE/` quando `--site-url` é informado; servidor de desenvolvimento e renderização no navegador funcionando com o comando salvo no ambiente.
+- Lighthouse/Core Web Vitals não foram medidos.
+- O link `wa.me` foi verificado como URL; ele não foi aberto num celular com WhatsApp.
+- Google Fonts foi carregado nas capturas, mas nos testes automatizados ele é substituído por CSS vazio (rede externa), então os testes usam as fontes de fallback.
 
 ## Estado da publicação
 
-**Site publicado e verificado:** https://theusmkt.github.io/SITE-GELISE/.
-
-Após a seleção de **GitHub Actions** como fonte do Pages pelo proprietário, a [execução 37464868101](https://github.com/THEUSMKT/SITE-GELISE/actions/runs/37464868101) foi iniciada por `workflow_dispatch` sobre o commit `da3c23d687fdef89d526aac2338fe156644f59ac` e concluiu com sucesso, incluindo build e deploy.
-
-Verificações sobre a publicação:
-
-- Página pública com HTTP **200**, título e conteúdo do Cantinho VIP.
-- API do GitHub confirmou a URL, `build_type: workflow` e HTTPS obrigatório.
-- Canonical, `og:url` e imagem de compartilhamento apontando para o project site `/SITE-GELISE/`.
-- Onze recursos públicos de entrada, incluindo CSS, JS, fontes, imagens e favicon, retornaram 200 e são idênticos aos arquivos locais, byte por byte.
-- Chromium em 390 px verificou título, retrato, menu móvel, Escape, troca de cursos e ausência de erros da página. As respostas HTTPS foram obtidas pelo cliente HTTP do Playwright com verificação TLS mantida e entregues ao navegador via `route.fetch`/`route.fulfill`: o Chromium desta máquina não reconheceu diretamente a autoridade certificadora do proxy do ambiente. Não foi desativada a verificação TLS.
-
-As primeiras execuções falharam em `configure-pages` com `Not Found` enquanto o Pages ainda não estava habilitado. Esse requisito foi resolvido; não é necessário configurar outra workflow, inserir token no código ou escolher os modelos Jekyll/Static HTML oferecidos nas configurações.
-
-## Ambiente reutilizável
-
-Salvos no rascunho da configuração do ambiente: `install_script` para gerar o artefato e `start_skill` para iniciar o servidor e verificar sua saúde. Foram acrescentados os domínios `api.github.com` e `theusmkt.github.io` para operações de consulta de publicação. O rascunho deve ser revisado e salvo nas configurações, e o ambiente deve ser publicado pelo produto para persistir o snapshot; essa publicação é distinta do deploy do site no GitHub Pages. O salvamento do rascunho não executa as instruções, aplica alterações de rede ou confirma restauração em uma nova tarefa.
+A versão publicada em https://theusmkt.github.io/SITE-GELISE/ continua sendo a **anterior** até estas alterações chegarem à branch `main` e a workflow do Pages rodar.

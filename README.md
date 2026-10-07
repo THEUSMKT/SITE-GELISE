@@ -1,82 +1,61 @@
-# Cantinho VIP · Gelise Beck Ferreira
+# Cantinho Vip · Estética e Beleza — Gelise
 
-Website estático de **THEUSMKT/SITE-GELISE**, criado a partir do pacote fornecido pela cliente. HTML semântico, CSS e JavaScript modular, sem framework, servidor de aplicação, dependências de produção ou rastreadores. Hospedagem exclusivamente pelo GitHub Pages.
+Landing page estática do **Cantinho Vip** (Gelise Beck Ferreira, "Gê Ferreira"), em Imbé/RS. O objetivo único é a cliente montar o pedido num **formulário em 5 etapas** e cair no WhatsApp da Gelise com tudo preenchido.
 
-## Desenvolvimento
+HTML, CSS e JavaScript puros, sem framework e sem build obrigatório. Hospedagem no GitHub Pages: `https://theusmkt.github.io/SITE-GELISE/`.
 
-Use o checkout existente em `/workspace/SITE-GELISE`; cada tarefa na nuvem já é isolada, portanto não é necessário criar outro worktree.
+## Estrutura
+
+```
+index.html          página única
+css/style.css       paleta (variáveis em :root), layout e animações
+js/script.js        CONFIG editável no topo + toda a interação
+assets/             logo, fotos (JPG + WebP), og-image, ícone Apple
+assets/originals/   uploads originais intactos (não vão para o deploy)
+favicon.png
+scripts/build.py    monta .site-build/ para o Pages
+tests/site.cjs      testes de navegador (Playwright)
+docs/               briefing original e prompt da reconstrução
+```
+
+## Editar conteúdo
+
+Tudo fica no objeto `CONFIG`, no topo de `js/script.js`:
+
+| Campo | O que faz |
+| --- | --- |
+| `WHATSAPP_NUMBER` | DDI+DDD+número, só dígitos. Usado no formulário, botões e botão flutuante. |
+| `INSTAGRAM_URL` | Se vazio, o Instagram não aparece. |
+| `ADDRESS` | Endereço e botão "Como chegar". Se vazio, fica oculto. |
+| `OPENING_HOURS` | Horário de atendimento. Se vazio, fica oculto. |
+| `SERVICES` | Cards da seção Serviços **e** opções da etapa 2. Ícones disponíveis em `ICONS`. |
+| `OCCASIONS` | Opções da etapa 3. `event: true` torna a data obrigatória e mostra a dica de agenda. |
+| `PERIODS` | Opções de período da etapa 4. |
+| `COURSES` | Cursos profissionalizantes. Lista vazia oculta a seção. |
+| `GALLERY_IMAGES` | Fotos reais de trabalhos `{ src, alt, width, height }`. Lista vazia oculta a seção. |
+
+Textos fixos (hero, sobre, como funciona) ficam em `index.html`. Há um bloco comentado para **depoimentos**, para usar só quando houver depoimentos reais.
+
+Cores: variáveis em `:root` no início de `css/style.css`. Fontes (Google Fonts): Playfair Display (títulos), Montserrat (texto) e Great Vibes (frase manuscrita).
+
+## Rodar localmente
 
 ```bash
-cd /workspace/SITE-GELISE
-python3 -m http.server 8000 --bind 0.0.0.0
+python3 -m http.server 8000
+# abra http://localhost:8000/
 ```
 
-Abra o site pelo servidor HTTP disponível no seu ambiente de desenvolvimento. Módulos JavaScript exigem HTTP; não abra `index.html` diretamente com `file://`.
-
-Para gerar o artefato de publicação:
-
-```bash
-python3 scripts/build.py
-```
-
-O diretório ignorado `.site-build/` inclui somente `index.html`, `.nojekyll`, favicon, imagens otimizadas, fontes com licenças, CSS e JS. Briefing, testes, scripts e imagens originais ficam fora da publicação. O build é repetível e não altera os arquivos fonte. Python 3.10+ é suficiente. Node não é necessário para desenvolver ou hospedar o site.
-
-Resultados dos testes e estado verificado da publicação: [docs/validation.md](docs/validation.md).
-
-## GitHub Pages
-
-1. Envie os arquivos para a branch `main` do repositório.
-2. Em **Settings → Pages → Build and deployment → Source**, selecione **GitHub Actions**.
-3. A workflow `.github/workflows/pages.yml` executa em pushes para `main` ou manualmente em **Actions**. Ela monta `.site-build/` e publica com as ações oficiais de Pages. Versões principais verificadas durante a implementação: checkout v6, configure-pages v5, upload-pages-artifact v4 e deploy-pages v4, fixadas por SHA.
-4. Espere a conclusão do job `deploy` e confirme a URL retornada por ele. Endereço padrão esperado: `https://theusmkt.github.io/SITE-GELISE/`. A existência da workflow não confirma um deploy concluído.
-
-Todos os caminhos são relativos para funcionar no subdiretório `/SITE-GELISE/`. Não há CNAME nem rotas que dependam de redirecionamento. A workflow usa o endereço retornado por `configure-pages` para inserir canonical, `og:url`, imagem absoluta de compartilhamento e URL no JSON-LD **somente no artefato**. Uma geração local sem `--site-url` não afirma um endereço publicado.
-
-## Conteúdo e identidade
-
-- Dados de contato, nomes para as mensagens de serviços/cursos, categorias e portfólio: `assets/js/config.js`.
-- Textos editoriais, catálogo semântico e metadados: `index.html`. Ao alterar fatos, mantenha também os links de fallback sem JS e o JSON-LD sincronizados.
-- Paleta, tipografia, composição responsiva e tokens de movimento: `assets/css/style.css`.
-- Fontes locais: Cormorant Garamond (normal e itálico) e Manrope variável, pacotes Fontsource 5.3.0, sob SIL Open Font License. Licenças em `assets/fonts/`.
-- As três imagens originais estão preservadas, sem alteração, em `assets/originals/`. Os derivados WebP preservam o enquadramento completo dos retratos. A logo é um recorte quadrado `(191, 115, 979, 903)` do PNG original, enquadrando o emblema circular inteiro, sem redesenho e sem fingir transparência. Favicon e ícone Apple usam o mesmo recorte.
-- Briefing original: `docs/briefing.md`.
-
-Os dois fluxos de conversão são atendimentos e cursos. WhatsApp usa mensagens contextualizadas e `encodeURIComponent`. Endereço abre uma busca no Google Maps, sem coordenadas presumidas. Não há preços, horários, depoimentos, certificações, resultados ou redes sociais inventados.
-
-O conteúdo permanece legível sem JavaScript. Serviços usam `details/summary` nativos; nesse modo, todos os painéis de cursos são exibidos. O JS aprimora o menu com foco e Escape, anima os serviços, ativa abas de cursos com setas/Home/End, adiciona revelações variadas e respeita `prefers-reduced-motion`.
-
-## Ativar trabalhos reais
-
-O portfólio e a âncora **Trabalhos** ficam completamente ocultos quando `site.portfolio` está vazio. Retratos da Gelise não são resultados de serviços.
-
-Após receber fotos reais e autorizadas, adicione imagens otimizadas em `assets/images/` e registros em `site.portfolio`:
-
-```js
-{
-  image: 'assets/images/nome-da-foto-real.webp',
-  alt: 'Descrição objetiva da imagem real',
-  category: 'Unhas',
-  caption: 'Legenda factual do trabalho',
-  width: 800, // dimensões reais do arquivo
-  height: 1000,
-}
-```
-
-Categorias: `Cabelos`, `Unhas`, `Olhar`, `Maquiagens e penteados`. A seção é ativada automaticamente, com filtros, lightbox, botões anterior/próximo, setas, Escape, foco contido e devolvido ao botão que abriu a imagem. Antes/depois requer fotos reais em pares e consentimento; não há comparador implementado sem esse conteúdo.
-
-## Validação
-
-`tests/site.cjs` verifica o **artefato servido sob `/SITE-GELISE/`** em Chromium: responsividade, imagens e caminhos, erros de console, menu e foco, acordeões, cinco cursos, mensagens de WhatsApp, mapa, movimento reduzido, falha de JavaScript e galeria futura usando fixtures apenas no navegador do teste. Capturas e relatório ficam no diretório ignorado `test-results/`.
-
-No ambiente Codex, Playwright e Chromium já estão disponíveis:
+## Testes
 
 ```bash
 python3 scripts/build.py
-node tests/site.cjs
+node tests/site.cjs        # precisa do pacote playwright (NODE_PATH) e do Chromium
 ```
 
-Em outro ambiente, instale Playwright fora do projeto ou disponibilize-o via `NODE_PATH`, instale Chromium e defina `CHROMIUM_PATH` se necessário. `@axe-core/playwright` é opcional para a auditoria automatizada de acessibilidade; o relatório distingue sua execução de ausência. O teste inicia e encerra seu próprio servidor e navegador.
+Os testes servem o artefato em `/SITE-GELISE/` e verificam: SEO básico, caminhos relativos, ausência de rolagem horizontal (375/768/1280 px), card que pré-seleciona o serviço, todas as etapas do formulário com validação, **a mensagem exata enviada ao WhatsApp** (acentos e emojis), menu mobile, intro da 1ª visita, `prefers-reduced-motion` e página sem JavaScript. Capturas ficam em `test-results/` (ignorado pelo git).
 
-## Conteúdo que pode ser ampliado
+## Publicação (GitHub Pages)
 
-Fotos autorizadas de resultados, detalhes confirmados do Dia de Princesa, informações adicionais de cursos, horários e redes sociais podem ser acrescentados quando fornecidos pela cliente. Esses pontos não aparecem como avisos ou placeholders no site público.
+A workflow `.github/workflows/pages.yml` roda em push na `main` (ou manualmente em **Actions**), executa `scripts/build.py --site-url <url do Pages>` e publica `.site-build/`. No artefato, o build torna absolutas as URLs de canonical, Open Graph, Twitter Card e JSON-LD. Os originais em `assets/originals/` não são publicados.
+
+Use só caminhos relativos (`assets/...`, nunca `/assets/...`), porque o site roda no subdiretório `/SITE-GELISE/`.

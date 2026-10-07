@@ -1,171 +1,467 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="no-js">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#35101f">
-  <title>Gelise Beck Ferreira | Cantinho VIP em Imbé</title>
-  <meta name="description" content="Conheça os serviços de beleza e cursos profissionalizantes de Gelise Beck Ferreira no Cantinho VIP, em Imbé/RS. Consulte informações pelo WhatsApp.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Cantinho Vip | Estética e Beleza — Gelise</title>
+  <meta name="description" content="Cantinho Vip, o espaço de beleza da Gelise em Imbé/RS: unhas, cílios, sobrancelhas, maquiagem e cuidados especiais. Monte seu pedido em 1 minuto e agende pelo WhatsApp.">
+  <meta name="theme-color" content="#2B0B25">
+  <meta name="color-scheme" content="dark">
+
+  <!-- Open Graph / Twitter: URLs absolutas (redes sociais não aceitam caminhos relativos). -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
-  <meta property="og:title" content="Gelise Beck Ferreira | Cantinho VIP em Imbé">
-  <meta property="og:description" content="Beleza, cuidado e cursos profissionalizantes com Gelise Beck Ferreira, no Cantinho VIP em Imbé/RS.">
-  <meta property="og:image" content="assets/images/cantinho-vip-788.webp">
-  <meta property="og:image:alt" content="Logo Cantinho VIP — Estética e Beleza">
-  <meta property="og:image:width" content="788">
-  <meta property="og:image:height" content="788">
+  <meta property="og:site_name" content="Cantinho Vip · Estética e Beleza">
+  <meta property="og:title" content="Cantinho Vip | Estética e Beleza — Gelise">
+  <meta property="og:description" content="Seu cantinho VIP de beleza em Imbé/RS. Unhas, cílios e cuidados especiais com a Gelise. Agende pelo WhatsApp.">
+  <meta property="og:url" content="https://theusmkt.github.io/SITE-GELISE/">
+  <meta property="og:image" content="https://theusmkt.github.io/SITE-GELISE/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logo Cantinho Vip — Estética e Beleza, em vinho e dourado">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cantinho Vip | Estética e Beleza — Gelise">
+  <meta name="twitter:description" content="Seu cantinho VIP de beleza em Imbé/RS. Agende pelo WhatsApp.">
+  <meta name="twitter:image" content="https://theusmkt.github.io/SITE-GELISE/assets/og-image.jpg">
   <!-- Deployment metadata is inserted by scripts/build.py when a Pages URL is available. -->
+
   <link rel="icon" type="image/png" href="favicon.png" sizes="64x64">
-  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
-  <link rel="preload" href="assets/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script type="module" src="assets/js/main.js"></script>
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap">
+  <link rel="preload" as="image" href="assets/gelise-unhas-560.webp" imagesrcset="assets/gelise-unhas-560.webp 560w, assets/gelise-unhas-900.webp 900w" imagesizes="(min-width: 1024px) 420px, 78vw" type="image/webp">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Marca a página como "com JS" e decide se a intro aparece (só na 1ª visita, sem movimento reduzido). -->
+  <script>
+    (function (d) {
+      var h = d.documentElement;
+      h.classList.remove('no-js');
+      h.classList.add('js');
+      try {
+        if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !localStorage.getItem('cv-intro-vista')) {
+          h.classList.add('show-intro');
+        }
+      } catch (e) {}
+    })(document);
+  </script>
+  <script src="js/script.js" defer></script>
+
   <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"BeautySalon","name":"Cantinho VIP — Estética e Beleza","telephone":"+5551986552232","address":{"@type":"PostalAddress","streetAddress":"Avenida Mariluz, 630","addressLocality":"Imbé","addressRegion":"RS","addressCountry":"BR"},"founder":{"@type":"Person","name":"Gelise Beck Ferreira"}}
+    {"@context":"https://schema.org","@type":"BeautySalon","name":"Cantinho Vip — Estética e Beleza","image":"https://theusmkt.github.io/SITE-GELISE/assets/logo.png","url":"https://theusmkt.github.io/SITE-GELISE/","telephone":"+5551986552232","address":{"@type":"PostalAddress","streetAddress":"Avenida Mariluz, 630","addressLocality":"Imbé","addressRegion":"RS","addressCountry":"BR"},"founder":{"@type":"Person","name":"Gelise Beck Ferreira"}}
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
-  <header class="site-header" id="inicio">
-    <div class="header-inner container">
-      <a class="brand" href="#inicio" aria-label="Cantinho VIP, início">
-        <img src="assets/images/cantinho-vip-160.webp" width="56" height="56" alt="">
-        <span class="brand-text">Cantinho VIP<span>ESTÉTICA E BELEZA · GELISE</span></span>
+  <!-- ===== Sprite SVG: motivos da logo reaproveitados no site ===== -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="gold-grad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#F6E3A1"/>
+        <stop offset=".35" stop-color="#D4AF37"/>
+        <stop offset=".6" stop-color="#A87B22"/>
+        <stop offset="1" stop-color="#F3D98B"/>
+      </linearGradient>
+    </defs>
+    <!-- Flor (plumeria) -->
+    <symbol id="i-flower" viewBox="-50 -50 100 100">
+      <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+        <path d="M0 -4C-9 -14 -11 -34 -2 -44C10 -40 14 -20 0 -4Z"/>
+        <path d="M0 -4C-9 -14 -11 -34 -2 -44C10 -40 14 -20 0 -4Z" transform="rotate(72)"/>
+        <path d="M0 -4C-9 -14 -11 -34 -2 -44C10 -40 14 -20 0 -4Z" transform="rotate(144)"/>
+        <path d="M0 -4C-9 -14 -11 -34 -2 -44C10 -40 14 -20 0 -4Z" transform="rotate(216)"/>
+        <path d="M0 -4C-9 -14 -11 -34 -2 -44C10 -40 14 -20 0 -4Z" transform="rotate(288)"/>
+        <circle r="5"/>
+      </g>
+      <g fill="currentColor"><circle r="1.6" cx="-2" cy="-1"/><circle r="1.4" cx="2.4" cy="1.6"/><circle r="1.2" cx="1.6" cy="-2.6"/></g>
+    </symbol>
+    <!-- Brilho em estrela -->
+    <symbol id="i-sparkle" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 0c.7 6.6 4.8 10.7 12 12-7.2 1.3-11.3 5.4-12 12-.7-6.6-4.8-10.7-12-12C7.2 10.7 11.3 6.6 12 0Z"/>
+    </symbol>
+    <!-- Losango do divisor -->
+    <symbol id="i-diamond" viewBox="0 0 40 16">
+      <path fill="currentColor" d="M20 0l4 8-4 8-4-8z"/>
+      <path fill="currentColor" d="M8 8l4-2.4v4.8zM32 8l-4-2.4v4.8z" opacity=".7"/>
+    </symbol>
+    <!-- WhatsApp -->
+    <symbol id="i-whatsapp" viewBox="0 0 32 32">
+      <path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.6c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 1 1 16 26.6Zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-4.3-3.7c-.3-.6.3-.5 1-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.8 1.2 3.3 1.4 3.5 2.4 3.6 5.7 5c2.1.9 3 1 4 .8.7-.1 1.9-.8 2.2-1.6s.3-1.4.2-1.6-.3-.2-.6-.4Z"/>
+    </symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></g>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></g>
+    </symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g>
+    </symbol>
+    <symbol id="i-crown" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 10H5z"/><path d="M5 21h14"/></g>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/>
+    </symbol>
+  </svg>
+
+  <!-- ===== Intro (1ª visita, até 1,2 s, pulável com clique/tecla) ===== -->
+  <div class="intro" aria-hidden="true">
+    <div class="intro-inner">
+      <svg class="intro-ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="92" pathLength="1"/></svg>
+      <img class="intro-logo" src="assets/logo-160.webp" width="160" height="160" alt="">
+    </div>
+  </div>
+
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header" id="topo">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Cantinho Vip, voltar ao início">
+        <img src="assets/logo-160.webp" width="44" height="44" alt="">
+        <span class="brand-name">Cantinho Vip<small>Estética e Beleza</small></span>
       </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden><span class="menu-label">Menu</span><span class="menu-bars" aria-hidden="true"></span></button>
       <nav class="site-nav" id="site-nav" aria-label="Navegação principal">
-        <a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#princesa">Dia de Princesa</a><a href="#cursos">Cursos</a><a href="#trabalhos" data-portfolio-nav hidden>Trabalhos</a><a href="#contato">Contato</a>
-        <a class="nav-cta" href="https://wa.me/5551986552232?text=Ol%C3%A1%2C%20Gelise!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20os%20atendimentos." data-whatsapp="general" target="_blank" rel="noopener noreferrer">Agendar com Gelise <span aria-hidden="true"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8"/></svg></span></a>
+        <ul>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <a class="btn btn-gold btn-sm nav-cta" href="#agendar"><span>Agendar</span></a>
       </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+        <span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
     </div>
   </header>
+
   <main id="conteudo">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-inner container">
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <canvas class="hero-particles" aria-hidden="true"></canvas>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow hero-enter" style="--delay:0ms"><span class="small-line" aria-hidden="true"></span> GELISE BECK FERREIRA · IMBÉ, RS</p>
-          <h1 id="hero-title" class="hero-enter" style="--delay:100ms">Sua beleza,<br>com a <em>atenção</em><br>que ela merece.</h1>
-          <p class="hero-description hero-enter" style="--delay:200ms">Mais de 21 anos na área da beleza, com atendimento realizado por mim e cuidado em cada detalhe.</p>
-          <div class="hero-actions hero-enter" style="--delay:300ms">
-            <a class="button button-champagne" href="https://wa.me/5551986552232?text=Ol%C3%A1%2C%20Gelise!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20os%20atendimentos." data-whatsapp="general" target="_blank" rel="noopener noreferrer">Agendar pelo WhatsApp <span aria-hidden="true"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8"/></svg></span></a>
-            <a class="text-link light-link" href="#servicos">Conhecer os serviços <span aria-hidden="true">↓</span></a>
+          <p class="seal hero-in" style="--d:0"><svg class="ico-sparkle" aria-hidden="true"><use href="#i-sparkle"/></svg> Estética e Beleza · Imbé, RS</p>
+          <h1 id="hero-title" class="hero-title">
+            <span class="word" style="--i:0">Seu</span>
+            <span class="word" style="--i:1">cantinho</span>
+            <span class="word gold-text shimmer" style="--i:2">VIP</span>
+            <span class="word" style="--i:3">de</span>
+            <span class="word" style="--i:4">beleza</span>
+          </h1>
+          <p class="hero-sub hero-in" style="--d:5">Unhas, cílios e cuidados especiais com a Gelise, para o dia a dia e para os momentos que merecem brilhar.</p>
+          <div class="hero-actions hero-in" style="--d:6">
+            <a class="btn btn-gold btn-lg magnetic" href="#agendar"><span>Quero agendar meu horário</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-outline btn-lg magnetic" href="#servicos"><span>Ver serviços</span></a>
           </div>
-          <div class="hero-signature hero-enter" style="--delay:400ms"><span class="signature-line" aria-hidden="true"></span><p>Cantinho VIP<span>Estética e Beleza</span></p></div>
+          <p class="hero-note hero-in" style="--d:7"><svg class="ico-crown" aria-hidden="true"><use href="#i-crown"/></svg> Atendimento feito pessoalmente pela Gelise</p>
         </div>
-        <figure class="hero-portrait photo-enter">
-          <div class="portrait-outline" aria-hidden="true"></div>
-          <img src="assets/images/gelise-retrato-486.webp" srcset="assets/images/gelise-retrato-320.webp 320w, assets/images/gelise-retrato-486.webp 486w" sizes="(max-width: 700px) 72vw, (max-width: 1050px) 31vw, 330px" width="486" height="1010" fetchpriority="high" alt="Gelise Beck Ferreira com uniforme preto do Cantinho VIP e instrumentos de beleza">
-          <figcaption>BELEZA COM PRESENÇA. CUIDADO COM NOME.</figcaption>
-        </figure>
-        <a class="hero-scroll" href="#sobre"><span>UM ENCONTRO COM O CUIDADO</span><span aria-hidden="true">↓</span></a>
-      </div>
-    </section>
 
-    <section class="about section-space" id="sobre" aria-labelledby="about-title">
-      <div class="about-layout container">
-        <figure class="about-portrait" data-reveal="photo">
-          <img src="assets/images/gelise-profissional-760.webp" srcset="assets/images/gelise-profissional-420.webp 420w, assets/images/gelise-profissional-760.webp 760w, assets/images/gelise-profissional-1086.webp 1086w" sizes="(max-width: 700px) 90vw, 42vw" width="1086" height="1448" loading="lazy" alt="Gelise em seu espaço de atendimento, com roupa branca, instrumento e equipamento de unhas">
-          <figcaption><span>NA PRÁTICA, NO CUIDADO, NO DETALHE.</span><span>Imbé, RS</span></figcaption>
-        </figure>
-        <div class="about-copy">
-          <p class="eyebrow section-label" data-reveal="line"><span>01</span> POR TRÁS DO CUIDADO</p>
-          <h2 id="about-title" data-reveal="title">Prazer,<br>sou <em>Gelise.</em></h2>
-          <p data-reveal="text">Sou Gelise Beck Ferreira, gaúcha e apaixonada pelo universo da beleza. Há mais de 21 anos, construo minha trajetória nessa área.</p>
-          <p data-reveal="text">No Cantinho VIP, em Imbé, realizo pessoalmente os atendimentos e ofereço serviços para diferentes momentos de cuidado, beleza e expressão pessoal. Também compartilho meus conhecimentos por meio de cursos profissionalizantes.</p>
-          <p class="personal-signature" data-reveal="text">Gelise Beck Ferreira</p>
-          <dl class="about-facts" data-reveal="line">
-            <div><dt>21+</dt><dd>Anos na área<br>da beleza</dd></div>
-            <div><dt>Comigo</dt><dd>Atendimento<br>com Gelise</dd></div>
-            <div><dt>Imbé</dt><dd>No litoral<br>do Rio Grande do Sul</dd></div>
-          </dl>
-        </div>
-      </div>
-    </section>
-
-    <section class="services section-space" id="servicos" aria-labelledby="services-title">
-      <div class="container">
-        <p class="eyebrow section-label" data-reveal="line"><span>02</span> SEUS MOMENTOS DE BELEZA</p>
-        <div class="section-intro"><h2 id="services-title" data-reveal="title">Um cuidado para<br><em>cada detalhe.</em></h2><p data-reveal="text">Conheça os serviços disponíveis e converse comigo sobre o que você procura.</p></div>
-        <div class="service-list">
-          <details class="service" open data-reveal="line" style="--stagger:0ms">
-            <summary id="service-cabelos" aria-controls="panel-cabelos"><span class="service-number">01</span><h3>Cabelos</h3><span class="service-preview">Cortes &amp; químicas</span><span class="expand-icon" aria-hidden="true"></span></summary>
-            <div class="service-body" id="panel-cabelos"><div class="service-detail"><p>Cuidado e expressão, do seu jeito.</p><ul><li>Cortes</li><li>Químicas em geral</li></ul></div><a class="text-link" href="https://wa.me/5551986552232?text=Ol%C3%A1%2C%20Gelise!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20cabelos%20e%20consultar%20a%20disponibilidade." data-whatsapp="service" data-topic="cabelos" target="_blank" rel="noopener noreferrer">Consultar sobre cabelos <span aria-hidden="true"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8"/></svg></span></a></div>
-          </details>
-          <details class="service" data-reveal="line" style="--stagger:80ms">
-            <summary id="service-unhas" aria-controls="panel-unhas"><span class="service-number">02</span><h3>Unhas</h3><span class="service-preview">Manicure, pedicure &amp; nail design</span><span class="expand-icon" aria-hidden="true"></span></summary>
-            <div class="service-body" id="panel-unhas"><div class="service-detail"><p>O cuidado também está nos pequenos detalhes.</p><ul><li>Manicure</li><li>Pedicure</li><li>Nail design</li></ul></div><a class="text-link" href="https://wa.me/5551986552232?text=Ol%C3%A1%2C%20Gelise!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20unhas%20e%20consultar%20a%20disponibilidade." data-whatsapp="service" data-topic="unhas" target="_blank" rel="noopener noreferrer">Consultar sobre unhas <span aria-hidden="true"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8"/></svg></span></a></div>
-          </details>
-          <details class="service" data-reveal="line" style="--stagger:160ms">
-            <summary id="service-olhar" aria-controls="panel-olhar"><span class="service-number">03</span><h3>Olhar</h3><span class="service-preview">Sobrancelhas &amp; cílios</span><span class="expand-icon" aria-hidden="true"></span></summary>
-            <div class="service-body" id="panel-olhar"><div class="service-detail"><p>Um olhar para a sua expressão.</p><ul><li>Design de sobrancelhas</li><li>Extensão de cílios / lash design</li></ul></div><a class="text-link" href="https://wa.me/5551986552232?text=Ol%C3%A1%2C%20Gelise!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20design%20de%20sobrancelhas%20e%20extens%C3%A3o%20de%20c%C3%ADlios%20e%20consultar%20a%20disponibilidade." data-whatsapp="service" data-topic="olhar" target="_blank" rel="noopener noreferrer">Consultar sobre olhar <span aria-hidden="true"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8"/></svg></span></a></div>
-          </details>
-          <details class="service" data-reveal="line" style="--stagger:240ms">
-            <summary id="service-beleza" aria-controls="panel-beleza"><span class="service-number">04</span><h3>Beleza e ocasiões</h3><span class="service-preview">Maquiagem &amp; penteados</span><span class="expand-icon" aria-hidden="true"></span></summary>
-            <div class="service-body" id="panel-beleza"><div class="service-detail"><p>Beleza para os seus momentos.</p><ul><li>Maquiagem</li><li>Penteados</li></ul></div><a class="text-link" href="https://wa.me/5551986552232?text=Ol%C3%A1%2C%20Gelise!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20maquiagem%20e%20penteados%20e%20consultar%20a%20disponibilidade." data-whatsapp="service" data-topic="beleza" target="_blank" rel="noopener noreferrer">Consultar sobre maquiagem e penteados <span aria-hidden="true"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8"/></svg></span></a></div>
-          </details>
-          <details class="service" data-reveal="line" style="--stagger:320ms">
-            <summary id="service-depilacao" aria-controls="panel-depilacao"><span class="service-number">05</span><h3>Depilação</h3><span class="service-preview">Seu momento de cuidado</span><span class="expand-icon" aria-hidden="true"></span></summary>
-            <div class="service-body" id="panel-depilacao"><div class="service-detail"><p>Converse comigo sobre o atendimento que você procura.</p><ul><li>Depilação</li></ul></div><a class="text-link" href="https://wa.me/5551986552232?text=Ol%C3%A1%2C%20Gelise!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20depila%C3%A7%C3%A3o%20e%20consultar%20a%20disponibilidade." data-whatsapp="service" data-topic="depilacao" target="_blank" rel="noopener noreferrer">Consultar sobre depilação <span aria-hidden="true"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8"/></svg></span></a></div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="princess section-space" id="princesa" aria-labelledby="princess-title">
-      <svg class="princess-curves" viewBox="0 0 1000 650" fill="none" aria-hidden="true" data-reveal="curve"><path d="M75 610C-50 260 180-45 420 90c170 95 80 300 265 285 140-10 184-187 139-267"/><path d="M65 634C-25 288 192-16 412 115c153 91 92 317 276 287 132-21 219-211 160-320"/><path d="M920 500c-78 127-279 215-483 74-120-84-57-243-222-241"/></svg>
-      <div class="princess-inner container">
-        <p class="eyebrow section-label" data-reveal="line"><span>03</span> UM TEMPO SÓ SEU</p>
-        <p class="princess-subtitle" data-reveal="text">Um momento dedicado a você.</p>
-        <h2 id="princess-title" data-reveal="title">Dia de <em>Princesa.</em></h2>
-        <p class="princess-description" data-reveal="text">Conheça a proposta do Dia de Princesa completo e converse comigo sobre os serviços, a disponibilidade e os detalhes da experiência.</p>
-        <a class="button button-outline" href="https://wa.me/5551986552232?text=Ol%C3%A1%2C%20Gelise!%20Gostaria%20de%20conhecer%20os%20detalhes%20do%20Dia%20de%20Princesa%20completo." data-whatsapp="princess" target="_blank" rel="noopener noreferrer" data-reveal="text">Quero saber sobre o Dia de Princesa <span aria-hidden="true"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8"/></svg></span></a>
-        <span class="princess-bottom" aria-hidden="true">CANTINHO VIP · ESTÉTICA E BELEZA</span>
-      </div>
-    </section>
-
-    <section class="courses section-space" id="cursos" aria-labelledby="courses-title">
-      <div class="container">
-        <p class="eyebrow section-label" data-reveal="line"><span>04</span> BELEZA QUE SE COMPARTILHA</p>
-        <div class="section-intro courses-intro"><h2 id="courses-title" data-reveal="title">Conhecimento para<br>a sua <em>trajetória na beleza.</em></h2><p data-reveal="text">Além dos atendimentos no salão, ofereço cursos profissionalizantes em diferentes áreas da beleza. Fale comigo para conhecer as opções e obter informações sobre conteúdo, formato e próximas oportunidades.</p></div>
-        <div class="course-layout" data-reveal="text">
-          <nav class="course-tabs" aria-label="Áreas dos cursos">
-            <a id="tab-depilacao" href="#curso-depilacao"><span>01</span> Depilação <span class="course-tab-arrow" aria-hidden="true"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8"/></svg></span></a>
-            <a id="tab-cilios" href="#curso-cilios"><span>02</span> Extensão de cílios <span class="course-tab-arrow" aria-hidden="true"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8"/></svg></span></a>
-            <a id="tab-nail" href="#curso-nail"><span>03</span> Nail design <span class="course-tab-arrow" aria-hidden="true"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8"/></svg></span></a>
-            <a id="tab-manicure" href="#curso-manicure"><span>04</span> Manicure e pedicure <span class="course-tab-arrow" aria-hidden="true"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8"/></svg></span></a>
-            <a id="tab-maquiagem" href="#curso-maquiagem"><span>05</span> Maquiagem <span class="course-tab-arrow" aria-hidden="true"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8"/></svg></span></a>
-          </nav>
-          <div class="course-panels">
-            <article class="course-panel" id="curso-depilacao" aria-labelledby="course-depilacao-title"><span class="course-watermark" aria-hidden="true">01</span><p class="eyebrow">CURSO PROFISSIONALIZANTE</p><h3 id="course-depilacao-title">Depilação</h3><p>Converse comigo para conhecer o conteúdo, o formato e as próximas oportunidades deste curso.</p><a class="text-link" href="https://wa.me/5551986552232?text=Ol%C3%A1%2C%20Gelise!%20Tenho%20interesse%20no%20curso%20de%20depila%C3%A7%C3%A3o.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F" data-whatsapp="course" data-topic="depilacao" target="_blank" rel="noopener noreferrer">Consultar este curso <span aria-hidden="true"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8"/></svg></span></a></article>
-            <article class="course-panel" id="curso-cilios" aria-labelledby="course-cilios-title"><span class="course-watermark" aria-hidden="true">02</span><p class="eyebrow">CURSO PROFISSIONALIZANTE</p><h3 id="course-cilios-title">Extensão de cílios<br><em>Lash design</em></h3><p>Converse comigo para conhecer o conteúdo, o formato e as próximas oportunidades deste curso.</p><a class="text-link" href="https://wa.me/5551986552232?text=Ol%C3%A1%2C%20Gelise!%20Tenho%20interesse%20no%20curso%20de%20extens%C3%A3o%20de%20c%C3%ADlios%20%2F%20lash%20design.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F" data-whatsapp="course" data-topic="cilios" target="_blank" rel="noopener noreferrer">Consultar este curso <span aria-hidden="true"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8"/></svg></span></a></article>
-            <article class="course-panel" id="curso-nail" aria-labelledby="course-nail-title"><span class="course-watermark" aria-hidden="true">03</span><p class="eyebrow">CURSO PROFISSIONALIZANTE</p><h3 id="course-nail-title">Nail design</h3><p>Converse comigo para conhecer o conteúdo, o formato e as próximas oportunidades deste curso.</p><a class="text-link" href="https://wa.me/5551986552232?text=Ol%C3%A1%2C%20Gelise!%20Tenho%20interesse%20no%20curso%20de%20nail%20design.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F" data-whatsapp="course" data-topic="nail" target="_blank" rel="noopener noreferrer">Consultar este curso <span aria-hidden="true"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8"/></svg></span></a></article>
-            <article class="course-panel" id="curso-manicure" aria-labelledby="course-manicure-title"><span class="course-watermark" aria-hidden="true">04</span><p class="eyebrow">CURSO PROFISSIONALIZANTE</p><h3 id="course-manicure-title">Manicure<br>e pedicure</h3><p>Converse comigo para conhecer o conteúdo, o formato e as próximas oportunidades deste curso.</p><a class="text-link" href="https://wa.me/5551986552232?text=Ol%C3%A1%2C%20Gelise!%20Tenho%20interesse%20no%20curso%20de%20manicure%20e%20pedicure.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F" data-whatsapp="course" data-topic="manicure" target="_blank" rel="noopener noreferrer">Consultar este curso <span aria-hidden="true"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8"/></svg></span></a></article>
-            <article class="course-panel" id="curso-maquiagem" aria-labelledby="course-maquiagem-title"><span class="course-watermark" aria-hidden="true">05</span><p class="eyebrow">CURSO PROFISSIONALIZANTE</p><h3 id="course-maquiagem-title">Maquiagem</h3><p>Converse comigo para conhecer o conteúdo, o formato e as próximas oportunidades deste curso.</p><a class="text-link" href="https://wa.me/5551986552232?text=Ol%C3%A1%2C%20Gelise!%20Tenho%20interesse%20no%20curso%20de%20maquiagem.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F" data-whatsapp="course" data-topic="maquiagem" target="_blank" rel="noopener noreferrer">Consultar este curso <span aria-hidden="true"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8"/></svg></span></a></article>
+        <div class="hero-visual">
+          <div class="hero-parallax" data-parallax="0.06">
+            <svg class="ring-spin" viewBox="0 0 400 400" aria-hidden="true">
+              <circle cx="200" cy="200" r="190" class="ring-line"/>
+              <circle cx="200" cy="200" r="174" class="ring-dash"/>
+              <use href="#i-sparkle" x="190" y="0" width="20" height="20" class="ring-star"/>
+              <use href="#i-sparkle" x="384" y="192" width="14" height="14" class="ring-star"/>
+              <use href="#i-sparkle" x="40" y="310" width="12" height="12" class="ring-star"/>
+            </svg>
+            <figure class="arch arch-hero hero-photo-in">
+              <picture>
+                <source type="image/webp" srcset="assets/gelise-unhas-560.webp 560w, assets/gelise-unhas-900.webp 900w" sizes="(min-width: 1024px) 420px, 78vw">
+                <img src="assets/gelise-unhas.jpg" width="1086" height="1448" fetchpriority="high" decoding="async" alt="Gelise sorrindo, de jaleco branco de nail designer, segurando o motor de unhas rosa no seu espaço de atendimento">
+              </picture>
+            </figure>
           </div>
+          <svg class="hero-flower" data-parallax="-0.1" aria-hidden="true"><use href="#i-flower"/></svg>
+          <ul class="badges" aria-label="Destaques">
+            <li class="badge badge-1"><svg aria-hidden="true"><use href="#i-crown"/></svg> Atendimento exclusivo</li>
+            <li class="badge badge-2"><svg aria-hidden="true"><use href="#i-clock"/></svg> Agende em 1 minuto</li>
+            <li class="badge badge-3 script">Sonhe · Acredite · Conquiste</li>
+          </ul>
         </div>
-        <p class="course-note">Cursos com Gelise Beck Ferreira <span aria-hidden="true">—</span> Cantinho VIP, Imbé/RS</p>
+      </div>
+      <a class="scroll-hint" href="#servicos" aria-label="Rolar para os serviços"><span></span></a>
+    </section>
+
+    <!-- ===== Marquee ===== -->
+    <div class="marquee" aria-label="Unhas, cílios, sobrancelhas, eventos, noivas, cuidado e beleza">
+      <div class="marquee-track" aria-hidden="true">
+        <ul>
+          <li>Unhas</li><li>Cílios</li><li>Sobrancelhas</li><li>Eventos</li><li>Noivas</li><li>Cuidado e Beleza</li>
+        </ul>
+        <ul>
+          <li>Unhas</li><li>Cílios</li><li>Sobrancelhas</li><li>Eventos</li><li>Noivas</li><li>Cuidado e Beleza</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ===== Serviços (renderizados a partir de CONFIG.SERVICES) ===== -->
+    <section class="section services" id="servicos" aria-labelledby="services-title">
+      <svg class="watermark watermark-flower" aria-hidden="true"><use href="#i-flower"/></svg>
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">Serviços</p>
+          <h2 id="services-title" class="section-title"><span class="gold-text shimmer">Cuidados pensados para você</span></h2>
+          <div class="divider" aria-hidden="true"><span></span><svg><use href="#i-diamond"/></svg><span></span></div>
+          <p class="section-lead">Toque em um serviço para já incluí-lo no seu pedido de agendamento.</p>
+        </header>
+        <div class="services-grid" id="services-grid" data-stagger></div>
+        <noscript>
+          <p class="noscript-note">Serviços: manicure, pedicure, nail design, extensão de cílios, design de sobrancelhas, maquiagem, penteados, cabelos, depilação e Dia de Princesa. Para agendar, chame no WhatsApp: <a href="https://wa.me/5551986552232">(51) 98655-2232</a>.</p>
+        </noscript>
       </div>
     </section>
 
-    <section class="portfolio section-space" id="trabalhos" aria-labelledby="portfolio-title" hidden><div class="container"><p class="eyebrow">O CUIDADO EM CADA RESULTADO</p><h2 id="portfolio-title">Trabalhos de <em>Gelise.</em></h2><div class="portfolio-filters" role="group" aria-label="Filtrar trabalhos"></div><div class="portfolio-grid" aria-live="polite"></div></div></section>
-
-    <section class="contact section-space" id="contato" aria-labelledby="contact-title">
+    <!-- ===== Como funciona ===== -->
+    <section class="section how" id="como-funciona" aria-labelledby="how-title">
       <div class="container">
-        <p class="eyebrow section-label" data-reveal="line"><span>05</span> VAMOS CONVERSAR?</p>
-        <div class="contact-layout">
-          <div><h2 id="contact-title" data-reveal="title">Seu próximo<br>momento de cuidado<br><em>começa aqui.</em></h2><a class="button button-wine" href="https://wa.me/5551986552232?text=Ol%C3%A1%2C%20Gelise!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20os%20atendimentos." data-whatsapp="general" target="_blank" rel="noopener noreferrer" data-reveal="text">Conversar com Gelise <span aria-hidden="true"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8"/></svg></span></a></div>
-          <div class="contact-info" data-reveal="text">
-            <ol class="contact-steps"><li><span>01</span> Escolha um serviço ou curso.</li><li><span>02</span> Converse comigo pelo WhatsApp.</li><li><span>03</span> Consulte os detalhes e combine a disponibilidade.</li></ol>
-            <p class="contact-note">O contato é o primeiro passo. A confirmação do atendimento é combinada na conversa.</p>
-            <div class="contact-address"><p class="eyebrow">CANTINHO VIP — ESTÉTICA E BELEZA</p><p>Gelise Beck Ferreira</p><address>Avenida Mariluz, 630<br>Imbé, Rio Grande do Sul</address><a class="phone-link" href="tel:+5551986552232">(51) 98655-2232</a><a class="text-link directions" href="https://www.google.com/maps/search/?api=1&amp;query=Avenida%20Mariluz%2C%20630%20%E2%80%94%20Imb%C3%A9%2FRS" data-directions target="_blank" rel="noopener noreferrer">Como chegar <span aria-hidden="true"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8"/></svg></span></a></div>
-          </div>
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">Como funciona</p>
+          <h2 id="how-title" class="section-title">Agendar é simples assim</h2>
+          <div class="divider" aria-hidden="true"><span></span><svg><use href="#i-diamond"/></svg><span></span></div>
+        </header>
+        <ol class="timeline" data-stagger>
+          <li class="step" data-reveal>
+            <div class="step-ring"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" pathLength="1"/></svg><span>1</span></div>
+            <h3>Conte o que você quer</h3>
+            <p>Escolha um ou mais serviços, do jeitinho que você imaginou.</p>
+          </li>
+          <li class="step" data-reveal>
+            <div class="step-ring"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" pathLength="1"/></svg><span>2</span></div>
+            <h3>Escolha o dia e a ocasião</h3>
+            <p>Diga para qual momento é, a data desejada e o período que fica melhor para você.</p>
+          </li>
+          <li class="step" data-reveal>
+            <div class="step-ring"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" pathLength="1"/></svg><span>3</span></div>
+            <h3>Confirme com a Gelise no WhatsApp</h3>
+            <p>Seu pedido chega prontinho no WhatsApp da Gelise, que responde para confirmar o horário.</p>
+          </li>
+        </ol>
+        <div class="center" data-reveal>
+          <a class="btn btn-plum btn-lg magnetic" href="#agendar"><span>Começar meu agendamento</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== Sobre ===== -->
+    <section class="section about" id="sobre" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="about-visual" data-reveal>
+          <figure class="arch arch-about">
+            <picture>
+              <source type="image/webp" srcset="assets/gelise-cilios.webp">
+              <img src="assets/gelise-cilios.jpg" width="434" height="873" loading="lazy" decoding="async" alt="Gelise com o jaleco preto e dourado do Cantinho Vip, segurando pinças de cílios">
+            </picture>
+          </figure>
+          <svg class="about-flower" aria-hidden="true"><use href="#i-flower"/></svg>
+        </div>
+        <div class="about-copy" data-stagger>
+          <p class="eyebrow" data-reveal>Sobre</p>
+          <h2 id="about-title" class="section-title" data-reveal>Prazer, eu sou a <span class="gold-text shimmer">Gelise</span></h2>
+          <div class="divider divider-left" data-reveal aria-hidden="true"><span></span><svg><use href="#i-diamond"/></svg><span></span></div>
+          <p data-reveal>Sou Gelise Beck Ferreira, a <strong>Gê Ferreira</strong> do Cantinho Vip: gaúcha e apaixonada pelo universo da beleza. Há mais de 21 anos construo minha trajetória nessa área.</p>
+          <p data-reveal>No Cantinho Vip, em Imbé, eu mesma realizo os atendimentos, com calma, atenção e cuidado em cada detalhe, para que você se sinta à vontade e saia daqui se sentindo especial.</p>
+          <p data-reveal>Também compartilho o que aprendi por meio de cursos profissionalizantes.</p>
+          <p class="script-quote" data-reveal>Sonhe, Acredite, Conquiste</p>
+          <p class="signature" data-reveal>Gê Ferreira <svg aria-hidden="true"><use href="#i-sparkle"/></svg></p>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      ===== Depoimentos — adicionar quando houver =====
+      Use apenas depoimentos reais e autorizados. Sugestão de estrutura:
+      <section class="section testimonials" id="depoimentos" aria-labelledby="testimonials-title">
+        <div class="container">
+          <header class="section-head"><p class="eyebrow">Depoimentos</p><h2 id="testimonials-title" class="section-title">Quem já viveu o Cantinho Vip</h2></header>
+          <blockquote class="testimonial"><p>“Texto real da cliente.”</p><cite>Nome da cliente</cite></blockquote>
+        </div>
+      </section>
+    -->
+
+    <!-- ===== Cursos (dados em CONFIG.COURSES; oculta se vazio) ===== -->
+    <section class="section courses" id="cursos" aria-labelledby="courses-title" hidden>
+      <div class="container courses-inner" data-reveal>
+        <div>
+          <p class="eyebrow">Cursos profissionalizantes</p>
+          <h2 id="courses-title" class="section-title">Beleza que se <span class="gold-text">compartilha</span></h2>
+          <p class="section-lead">Além dos atendimentos, ofereço cursos profissionalizantes em diferentes áreas da beleza. Fale comigo para conhecer o conteúdo, o formato e as próximas oportunidades.</p>
+        </div>
+        <div>
+          <ul class="course-list" id="course-list"></ul>
+          <a class="btn btn-outline magnetic" id="courses-cta" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Quero saber sobre os cursos</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Galeria (CONFIG.GALLERY_IMAGES; oculta se vazio) ===== -->
+    <section class="section gallery" id="galeria" aria-labelledby="gallery-title" hidden>
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">Galeria</p>
+          <h2 id="gallery-title" class="section-title">Trabalhos do <span class="gold-text">Cantinho</span></h2>
+          <div class="divider" aria-hidden="true"><span></span><svg><use href="#i-diamond"/></svg><span></span></div>
+        </header>
+        <ul class="gallery-grid" id="gallery-grid" data-stagger></ul>
+      </div>
+    </section>
+
+    <!-- ===== Formulário de agendamento (wizard) ===== -->
+    <section class="section booking" id="agendar" aria-labelledby="booking-title">
+      <svg class="watermark watermark-flower booking-flower" aria-hidden="true"><use href="#i-flower"/></svg>
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">Agendamento</p>
+          <h2 id="booking-title" class="section-title"><span class="gold-text shimmer">Reserve o seu momento VIP</span></h2>
+          <div class="divider" aria-hidden="true"><span></span><svg><use href="#i-diamond"/></svg><span></span></div>
+          <p class="section-lead">Responda a 5 perguntinhas rápidas e o seu pedido chega prontinho no WhatsApp da Gelise.</p>
+        </header>
+
+        <div class="booking-layout">
+          <div class="wizard glass" id="wizard">
+            <div class="wz-progress">
+              <div class="wz-progress-meta"><span id="wz-step-label">Etapa 1 de 5</span><span id="wz-step-name">Seu nome</span></div>
+              <div class="wz-track" role="progressbar" aria-labelledby="wz-step-label" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1"><span class="wz-fill"></span></div>
+            </div>
+            <p class="sr-only" id="wz-live" aria-live="polite"></p>
+
+            <form id="booking-form" class="wz-form" novalidate>
+              <!-- Etapa 1 -->
+              <fieldset class="wz-step" data-step="1" data-name="Seu nome">
+                <legend class="wz-question">Como posso te chamar?</legend>
+                <p class="wz-hint">Assim a Gelise já sabe com quem vai conversar.</p>
+                <label class="field-label" for="f-name">Seu nome</label>
+                <input class="field" id="f-name" name="name" type="text" autocomplete="given-name" maxlength="60" placeholder="Ex.: Maria" aria-describedby="err-name">
+                <p class="wz-error" id="err-name"></p>
+              </fieldset>
+
+              <!-- Etapa 2 -->
+              <fieldset class="wz-step" data-step="2" data-name="Serviços" hidden>
+                <legend class="wz-question"><span class="wz-greet" data-greet="Prazer, {nome}! ✨ "></span>O que vamos fazer?</legend>
+                <p class="wz-hint">Pode escolher mais de um.</p>
+                <div class="choice-grid" id="service-choices"></div>
+                <div class="wz-other" id="service-other-wrap" hidden>
+                  <label class="field-label" for="f-service-other">Qual serviço você procura?</label>
+                  <input class="field" id="f-service-other" name="serviceOther" type="text" maxlength="80" placeholder="Conte rapidinho" aria-describedby="err-services">
+                </div>
+                <p class="wz-error" id="err-services"></p>
+              </fieldset>
+
+              <!-- Etapa 3 -->
+              <fieldset class="wz-step" data-step="3" data-name="Ocasião" hidden>
+                <legend class="wz-question">Para qual ocasião?</legend>
+                <p class="wz-hint">Assim a Gelise prepara tudo pensando no seu momento.</p>
+                <div class="chips" id="occasion-choices"></div>
+                <div class="wz-other" id="occasion-other-wrap" hidden>
+                  <label class="field-label" for="f-occasion-other">Qual ocasião?</label>
+                  <input class="field" id="f-occasion-other" name="occasionOther" type="text" maxlength="60" placeholder="Ex.: chá de bebê" aria-describedby="err-occasion">
+                </div>
+                <p class="wz-error" id="err-occasion"></p>
+              </fieldset>
+
+              <!-- Etapa 4 -->
+              <fieldset class="wz-step" data-step="4" data-name="Data e período" hidden>
+                <legend class="wz-question">Quando você gostaria de vir?</legend>
+                <p class="wz-event-tip" id="event-tip" hidden><svg aria-hidden="true"><use href="#i-sparkle"/></svg> Eventos têm agenda mais concorrida: quanto antes, melhor ✨</p>
+                <label class="field-label" for="f-date">Data desejada <span class="field-optional" id="date-optional">(opcional)</span></label>
+                <input class="field field-date" id="f-date" name="date" type="date" aria-describedby="err-date">
+                <p class="wz-error" id="err-date"></p>
+                <fieldset class="wz-sub">
+                  <legend class="field-label">Período preferido</legend>
+                  <div class="chips" id="period-choices"></div>
+                </fieldset>
+                <p class="wz-error" id="err-period"></p>
+                <label class="field-label" for="f-notes">Quer contar mais algum detalhe? <span class="field-optional">(opcional)</span></label>
+                <textarea class="field" id="f-notes" name="notes" rows="3" maxlength="500" placeholder="Ex.: referência de cor, modelo, inspiração…"></textarea>
+              </fieldset>
+
+              <!-- Etapa 5 -->
+              <fieldset class="wz-step" data-step="5" data-name="Revisão" hidden>
+                <legend class="wz-question">Tudo certo, <span data-name-slot>linda</span>?</legend>
+                <p class="wz-hint">Confira o seu pedido antes de enviar.</p>
+                <dl class="review" id="review-list"></dl>
+                <a class="btn btn-gold btn-lg btn-send" id="send-whatsapp" href="#" target="_blank" rel="noopener">
+                  <svg aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Enviar para o WhatsApp da Gelise</span>
+                </a>
+              </fieldset>
+
+              <div class="wz-nav">
+                <button class="btn btn-ghost" type="button" id="wz-back" hidden><span>Voltar</span></button>
+                <button class="btn btn-gold" type="submit" id="wz-next"><span>Continuar</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+              </div>
+            </form>
+
+            <div class="wz-thanks" id="wz-thanks" tabindex="-1" hidden>
+              <svg class="thanks-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" pathLength="1"/><use href="#i-check" x="18" y="18" width="28" height="28"/></svg>
+              <h3 class="wz-question">Quase lá, <span data-name-slot>linda</span>!</h3>
+              <p>Sua solicitação foi montada. Se o WhatsApp não abriu, toque aqui:</p>
+              <a class="btn btn-gold" id="reopen-whatsapp" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Abrir o WhatsApp</span></a>
+              <button class="link-btn" type="button" id="wz-restart">Fazer um novo pedido</button>
+            </div>
+            <noscript><p class="noscript-note">Para usar o formulário, ative o JavaScript, ou chame direto no WhatsApp: <a href="https://wa.me/5551986552232">(51) 98655-2232</a>.</p></noscript>
+          </div>
+
+          <aside class="summary glass" aria-labelledby="summary-title">
+            <h3 id="summary-title" class="summary-title"><svg aria-hidden="true"><use href="#i-sparkle"/></svg> Resumo do seu pedido</h3>
+            <dl class="summary-list" id="summary-list"></dl>
+            <p class="summary-foot">A Gelise confirma o horário com você pelo WhatsApp.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contato (itens vazios em CONFIG ficam ocultos) ===== -->
+    <section class="section contact" id="contato" aria-labelledby="contact-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">Contato</p>
+          <h2 id="contact-title" class="section-title">Venha para o seu <span class="gold-text shimmer">cantinho</span></h2>
+          <div class="divider" aria-hidden="true"><span></span><svg><use href="#i-diamond"/></svg><span></span></div>
+        </header>
+        <ul class="contact-grid" id="contact-grid" data-stagger></ul>
+        <noscript><p class="noscript-note">Avenida Mariluz, 630 — Imbé/RS · WhatsApp <a href="https://wa.me/5551986552232">(51) 98655-2232</a></p></noscript>
       </div>
     </section>
   </main>
-  <footer class="site-footer"><div class="footer-main container"><a href="#inicio" class="footer-logo" aria-label="Cantinho VIP, voltar ao início"><img src="assets/images/cantinho-vip-400.webp" width="170" height="170" loading="lazy" alt="Cantinho VIP — Estética e Beleza, logo original vinho e dourado"></a><div class="footer-identity"><p>Cantinho VIP</p><span>Estética e Beleza</span><p class="footer-name">Gelise Beck Ferreira</p></div><nav class="footer-nav" aria-label="Navegação do rodapé"><a href="#sobre">Sobre Gelise</a><a href="#servicos">Serviços</a><a href="#cursos">Cursos</a><a href="#contato">Contato</a></nav><div class="footer-contact"><p>Avenida Mariluz, 630<br>Imbé/RS</p><a href="tel:+5551986552232">(51) 98655-2232</a><a href="#inicio" class="back-top">Voltar ao início <span aria-hidden="true">↑</span></a></div></div><div class="footer-bottom container"><p>© <span data-year>2026</span> Cantinho VIP. Todos os direitos reservados.</p><p>Beleza com atenção. Por Gelise.</p></div></footer>
-  <a class="floating-whatsapp" href="https://wa.me/5551986552232?text=Ol%C3%A1%2C%20Gelise!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20os%20atendimentos." data-whatsapp="general" target="_blank" rel="noopener noreferrer" aria-label="Conversar com Gelise pelo WhatsApp"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M26 15.6A10.3 10.3 0 0 1 10.7 24.7L5 26l1.4-5.5A10.3 10.3 0 1 1 26 15.6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 10.4c-.4-.7-1.1-.7-1.5-.2-.8 1-.9 2-.4 3.3 1.1 3.2 4 5.7 7.5 6.5 1.3.3 2.4-.3 2.8-1.4.2-.4.1-.7-.3-.9l-2-1c-.4-.2-.7-.1-1 .2l-.7.8c-1.8-.6-3.3-2-4-3.5l.7-.8c.3-.3.3-.6.1-1l-1.2-2Z" fill="currentColor"/></svg></a>
-  <dialog class="lightbox" aria-labelledby="lightbox-caption"><button class="lightbox-close" type="button" aria-label="Fechar imagem">×</button><div class="lightbox-content"><img class="lightbox-image" alt=""><p id="lightbox-caption"></p><div class="lightbox-controls"><button type="button" data-lightbox-prev aria-label="Trabalho anterior"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8H3m5-5L3 8l5 5"/></svg></button><span class="lightbox-count" aria-live="polite"></span><button type="button" data-lightbox-next aria-label="Próximo trabalho"><svg class="arrow-svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5"/></svg></button></div></div></dialog>
+
+  <!-- ===== Rodapé ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img class="footer-logo" src="assets/logo.webp" width="140" height="140" loading="lazy" decoding="async" alt="Logo Cantinho Vip — Estética e Beleza">
+      <div class="divider" aria-hidden="true"><span></span><svg><use href="#i-diamond"/></svg><span></span></div>
+      <p class="footer-brand">Cantinho Vip · Estética e Beleza</p>
+      <nav aria-label="Links do rodapé">
+        <ul class="footer-links">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#agendar">Agendar</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <p class="footer-copy">© <span id="year">2026</span> Cantinho Vip · Gelise Beck Ferreira</p>
+    </div>
+  </footer>
+
+  <!-- ===== WhatsApp flutuante (conversa simples, sem dados do formulário) ===== -->
+  <a class="wa-float" id="wa-float" href="https://wa.me/5551986552232" target="_blank" rel="noopener" aria-label="Conversar com a Gelise pelo WhatsApp">
+    <svg aria-hidden="true"><use href="#i-whatsapp"/></svg>
+  </a>
+
+  <!-- ===== Lightbox da galeria ===== -->
+  <dialog class="lightbox" id="lightbox" aria-label="Imagem ampliada">
+    <button class="lb-close" type="button" aria-label="Fechar">×</button>
+    <button class="lb-nav lb-prev" type="button" aria-label="Imagem anterior"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+    <img class="lb-img" alt="">
+    <button class="lb-nav lb-next" type="button" aria-label="Próxima imagem"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+  </dialog>
 </body>
 </html>

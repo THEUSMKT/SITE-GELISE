@@ -24,21 +24,28 @@ def main():
     DESTINATION.mkdir()
     for name in ('index.html', 'favicon.png', '.nojekyll'):
         shutil.copy2(ROOT / name, DESTINATION / name)
-    for name in ('css', 'fonts', 'images', 'js'):
-        shutil.copytree(ROOT / 'assets' / name, DESTINATION / 'assets' / name)
+    for name in ('css', 'js'):
+        shutil.copytree(ROOT / name, DESTINATION / name)
+    # Everything in assets/ except the untouched original uploads.
+    shutil.copytree(ROOT / 'assets', DESTINATION / 'assets', ignore=shutil.ignore_patterns('originals'))
     if site_url:
         document = (DESTINATION / 'index.html').read_text()
         safe_url = html.escape(site_url + '/', quote=True)
+        metadata = f'<link rel="canonical" href="{safe_url}">'
+        if 'property="og:url"' not in document:
+            metadata += f'\n  <meta property="og:url" content="{safe_url}">'
         document = document.replace(
             '<!-- Deployment metadata is inserted by scripts/build.py when a Pages URL is available. -->',
-            f'<link rel="canonical" href="{safe_url}">\n  <meta property="og:url" content="{safe_url}">',
+            metadata,
         )
-        document = document.replace('content="assets/images/cantinho-vip-788.webp"', f'content="{html.escape(site_url, quote=True)}/assets/images/cantinho-vip-788.webp"')
+        document = document.replace('content="assets/og-image.jpg"', f'content="{html.escape(site_url, quote=True)}/assets/og-image.jpg"')
         # Use JSON serialization rather than interpolating a URL into structured data.
         start = document.index('<script type="application/ld+json">') + len('<script type="application/ld+json">')
         end = document.index('</script>', start)
         data = json.loads(document[start:end])
         data['url'] = site_url + '/'
+        if not urlparse(data.get('image', '')).scheme:
+            data['image'] = f"{site_url}/{data['image']}"
         document = document[:start] + '\n    ' + json.dumps(data, ensure_ascii=False).replace('<', '\\u003c') + '\n  ' + document[end:]
         (DESTINATION / 'index.html').write_text(document)
     files = [path for path in DESTINATION.rglob('*') if path.is_file()]
