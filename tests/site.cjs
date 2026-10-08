@@ -55,7 +55,12 @@ let url;
     assert.equal(await page.locator('.service-card').count(), 12);
     assert.ok(await page.locator('#galeria').isHidden(), 'galeria vazia deve ficar oculta');
     assert.ok(await page.locator('#cursos').isVisible());
-    assert.equal(await page.locator('#contact-grid > li').count(), 2, 'só endereço e WhatsApp estão preenchidos');
+    assert.equal(await page.locator('#contact-grid > li').count(), 3, 'endereço, WhatsApp e Instagram');
+    assert.equal(await page.locator('#ig-float').getAttribute('href'), 'https://www.instagram.com/cantinhovip_ge/');
+    assert.equal(await page.locator('#ig-float').getAttribute('target'), '_blank');
+    assert.ok(await page.locator('#ig-float').isVisible(), 'Instagram flutuante visível');
+    const [ig, wa] = await Promise.all(['#ig-float', '#wa-float'].map((s) => page.locator(s).boundingBox()));
+    assert.ok(ig.y + ig.height <= wa.y, 'Instagram fica acima do WhatsApp, sem sobrepor');
     assert.equal(await page.locator('#wa-float').getAttribute('href'), 'https://wa.me/5551986552232?text=' + encodeURIComponent('Olá, Gelise! ✨ Vim pelo site do Cantinho Vip.'));
     const absolute = await page.evaluate(() => [...document.querySelectorAll('[src],[href],[srcset]')]
       .flatMap((el) => [el.getAttribute('src'), el.getAttribute('href'), el.getAttribute('srcset')])

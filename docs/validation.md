@@ -30,4 +30,4 @@ Também houve revisão visual por capturas em 375, 390, 768 e 1280 px, incluindo
 
 ## Estado da publicação
 
-A versão publicada em https://theusmkt.github.io/SITE-GELISE/ continua sendo a **anterior** até estas alterações chegarem à branch `main` e a workflow do Pages rodar.
+O site é publicado pelo GitHub Pages em **https://ocantinhovip.com.br/** (domínio próprio; o endereço `https://theusmkt.github.io/SITE-GELISE/` passa a redirecionar para ele depois que o domínio é salvo em Settings → Pages). URLs de Open Graph, Twitter Card e JSON-LD apontam para o domínio próprio.

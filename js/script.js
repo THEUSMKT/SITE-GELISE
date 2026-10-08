@@ -7,7 +7,7 @@
 const CONFIG = {
   // DDI + DDD + número, só dígitos. (Número tirado do site anterior.)
   WHATSAPP_NUMBER: "5551986552232",
-  INSTAGRAM_URL: "",          // ex.: "https://www.instagram.com/usuario/" (vazio = oculto)
+  INSTAGRAM_URL: "https://www.instagram.com/cantinhovip_ge/", // vazio = oculto (botão flutuante e card de contato)
   ADDRESS: "Avenida Mariluz, 630 — Imbé/RS", // vazio = oculto
   OPENING_HOURS: "",          // ex.: "Seg. a sáb., das 9h às 19h" (vazio = oculto)
 
@@ -703,8 +703,12 @@ const ICONS = {
   function initFloatingWA() {
     const fab = $("#wa-float");
     fab.href = waLink("Olá, Gelise! ✨ Vim pelo site do Cantinho Vip.");
+    // Instagram flutuante: some se CONFIG.INSTAGRAM_URL estiver vazio
+    const ig = $("#ig-float");
+    if (CONFIG.INSTAGRAM_URL) ig.href = CONFIG.INSTAGRAM_URL; else ig.remove();
+    const floats = [fab, ig].filter((el) => el.isConnected);
     if (!("IntersectionObserver" in window)) return;
-    new IntersectionObserver(([en]) => fab.classList.toggle("is-hidden", en.isIntersecting), { threshold: .15 }).observe($("#agendar .booking-layout"));
+    new IntersectionObserver(([en]) => floats.forEach((el) => el.classList.toggle("is-hidden", en.isIntersecting)), { threshold: .15 }).observe($("#agendar .booking-layout"));
   }
 
   /* ---------- Inicialização ---------- */
